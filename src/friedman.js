@@ -23,11 +23,12 @@ module.exports = class Friedman {
 		for (let m = 1; m < MAX_KEY_LENGTH; m++) {
 			// Mount a string with every nth char at the input
 			// Ex: xab xcd xde = xxx
-			let buffer = "";
-			for (let j = 0; j < input.length; j += m) buffer += input[j];
+			const arrayBuffer = [];
+
+			for (let j = 0; j < input.length; j += m) arrayBuffer.push(input[j]);
 
 			// Calculate the index of coincidence of the given buffer
-			const ioc = CoincidenceIndex.calculate(buffer);
+			const ioc = CoincidenceIndex.calculate(arrayBuffer.join(""));
 
 			// Calculate the distance to the target language
 			const distanceToLanguageIoC = languageIoC - ioc;
@@ -42,14 +43,17 @@ module.exports = class Friedman {
 
 		benchmark.log();
 
-		console.log(possibleLengths);
+		// Return the possible length with most IoC
+		let maxIoC = null;
+		let maxLength = -1;
+		for (let i = 0; i < possibleLengths.length; i++) {
+			if (!maxIoC || possibleLengths[i] > maxIoC) {
+				maxIoC = possibleLengths[i].ioc;
+				maxLength = possibleLengths[i].length;
+			}
+		}
 
-		// Return the first
-		return possibleLengths.reduce((a, b) => {
-			if (!a || a.ioc > b.ioc) return a;
-
-			return b;
-		}).length;
+		return maxLength;
 	}
 
 };

@@ -1,7 +1,7 @@
 // Imports
 require("./extensions.js");
 const path = require("path");
-const fs = require("fs/promises");
+const fs = require("fs").promises;
 const Friedman = require("./friedman.js");
 const Vigenere = require("./vigenere.js");
 const Benchmark = require("./benchmark.js");
@@ -44,9 +44,13 @@ async function main() {
 	// Loads all the letter frequency tables
 	await LetterFrequency.load();
 
-	// Applies the friedman method to solve the cipher
+	// Estimates the key length using friedman test
 	const keyLength = Friedman.estimateKeyLength(input, LANGUAGE);
+	console.log(`Estimated key length: ${keyLength}`);
+
+	// Guesses the key using frequency analysis
 	const key = FrequencyAnalysis.guessKey(input, keyLength, LANGUAGE);
+	console.log(`Key: ${key}`);
 
 	// Decipher it with the guessed key
 	const output = Vigenere.decipher(input, key);

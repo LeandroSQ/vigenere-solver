@@ -1,5 +1,5 @@
 // Imports
-const fs = require("fs/promises");
+const fs = require("fs").promises;
 const path = require("path");
 const csv = require("csv");
 
@@ -28,7 +28,7 @@ module.exports = class LetterFrequency {
 				headers.shift();// Removes the first element
 
 				// Initializes the buffer
-				const buffer = {};
+				const buffer = { };
 				for (const language of headers) buffer[language] = { };
 
 				// Map the rows into the buffer object

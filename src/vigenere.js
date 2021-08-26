@@ -25,19 +25,20 @@ module.exports = class Vigenere {
 
 	static decipher(input, key) {
 		const benchmark = new Benchmark("decipher");
-		let buffer = "";
+
+		const buffer = [];
+		const letterA = "A".toAscii();
 
 		for (let i = 0; i < input.length; i++) {
-			let position = (input[i].toAscii() - key[i % key.length].toAscii() + 26) % 26;
-
-			position += "A".toAscii();
-
-			buffer += String.fromAscii(position);
+			const letter = ((input.charCodeAt(i) - key.charCodeAt(i % key.length) + 26) % 26 + letterA).fromAscii();
+			buffer.push(letter);
 		}
+
+		const result = buffer.join("");
 
 		benchmark.log();
 
-		return buffer;
+		return result;
 	}
 
 };
