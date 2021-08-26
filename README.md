@@ -2,6 +2,8 @@
 
 A simple vigenere solver using Index of Coincidence, Friedman and Chi-squared
 
+<p align="center"><br/><img src=".github/vigenere-board.svg"/></p>
+
 ## Vigenère
 
 Created by Giovan Battista Bellaso in 1553, a simple cipher to implement but quite hard to break it. Being even called as _"The indecipherable cipher"_, remaining like that for 3 centuries.
