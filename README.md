@@ -27,7 +27,7 @@ Basically calculating the IoC of every chunk of text separated by a given guesse
 
 It uses chi-squared distribution to evaluate a goodness fit, testing whether an observed value and an expected value share the same frequencies.
 
- <img src="https://render.githubusercontent.com/render/math?math=\sum_{\displaystyle {\frac {\left({\text{observed}}-{\text{expected}}\right)^{2}}{\text{expected}}}}">
+ <img src="https://render.githubusercontent.com/render/math?math={\displaystyle \sum {\frac {\left({\text{observed}}-{\text{expected}}\right)^{2}}{\text{expected}}}}">
 
 ---
 

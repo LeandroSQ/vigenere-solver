@@ -2,3 +2,4 @@ node_modules
 *-lock.json
 unuseful
 -output.txt
+.DS_Store
