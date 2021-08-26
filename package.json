@@ -1,0 +1,25 @@
+{
+	"name": "vigenere-cipher",
+	"version": "1.0.0",
+	"description": "A simple vigenere implementation",
+	"main": "src/main.js",
+	"scripts": {
+		"start": "node src/main.js"
+	},
+	"keywords": [
+		"Vigenere",
+		"Kasiski",
+		"Cipher",
+		"Decipher"
+	],
+	"author": "Leandro Soares Quevedo",
+	"license": "MIT",
+	"dependencies": {
+		"csv": "^5.5.0"
+	},
+	"devDependencies": {
+		"babel-eslint": "^10.1.0",
+		"eslint": "^7.32.0",
+		"eslint-config-google": "^0.14.0"
+	}
+}
